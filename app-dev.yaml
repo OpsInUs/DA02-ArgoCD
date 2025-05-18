@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: da02-dev
+  namespace: argocd
+spec:
+  project: da02
+  source:
+    repoURL: https://github.com/OpsInUs/DA02-HelmRepo
+    targetRevision: main
+    path: .
+    helm:
+      valueFiles:
+        - env/dev/values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
