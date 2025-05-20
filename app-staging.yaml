@@ -31,7 +31,7 @@ spec:
   project: da02
   source:
     repoURL: https://github.com/OpsInUs/DA02-HelmRepo
-    targetRevision: v*
+    targetRevision: main
     path: .
     helm:
       valueFiles:
