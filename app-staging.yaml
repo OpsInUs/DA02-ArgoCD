@@ -3,11 +3,35 @@ kind: Application
 metadata:
   name: da02-staging
   namespace: argocd
+  annotations:
+    # Image watcher list
+    argocd-image-updater.argoproj.io/image-list: |
+      admin-server=docker.io/vuhoabinhthachhoa/spring-petclinic-admin-server:*,
+      api-gateway=docker.io/vuhoabinhthachhoa/spring-petclinic-api-gateway:*,
+      config-server=docker.io/vuhoabinhthachhoa/spring-petclinic-config-server:*,
+      customers-service=docker.io/vuhoabinhthachhoa/spring-petclinic-customers-service:*,
+      discovery-server=docker.io/vuhoabinhthachhoa/spring-petclinic-discovery-server:*,
+      genai-service=docker.io/vuhoabinhthachhoa/spring-petclinic-genai-service:*,
+      vets-service=docker.io/vuhoabinhthachhoa/spring-petclinic-vets-service:*,
+      visits-service=docker.io/vuhoabinhthachhoa/spring-petclinic-visits-service:*
+
+    # Update strategy
+    argocd-image-updater.argoproj.io/admin-server.update-strategy: digest
+    argocd-image-updater.argoproj.io/api-gateway.update-strategy: digest
+    argocd-image-updater.argoproj.io/config-server.update-strategy: digest
+    argocd-image-updater.argoproj.io/customers-service.update-strategy: digest
+    argocd-image-updater.argoproj.io/discovery-server.update-strategy: digest
+    argocd-image-updater.argoproj.io/genai-service.update-strategy: digest
+    argocd-image-updater.argoproj.io/vets-service.update-strategy: digest
+    argocd-image-updater.argoproj.io/visits-service.update-strategy: digest
+
+    # Use ArgoCD API to apply values
+    argocd-image-updater.argoproj.io/write-back-method: argocd
 spec:
   project: da02
   source:
     repoURL: https://github.com/OpsInUs/DA02-HelmRepo
-    targetRevision: main
+    targetRevision: v*
     path: .
     helm:
       valueFiles:
