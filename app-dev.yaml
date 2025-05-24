@@ -27,6 +27,15 @@ metadata:
     
     # Use ArgoCD API for updates
     argocd-image-updater.argoproj.io/write-back-method: argocd
+
+    argocd-image-updater.argoproj.io/admin-server.helm.image-path: services.admin-server.image
+    argocd-image-updater.argoproj.io/api-gateway.helm.image-path: services.api-gateway.image
+    argocd-image-updater.argoproj.io/config-server.helm.image-path: services.config-server.image
+    argocd-image-updater.argoproj.io/customers-service.helm.image-path: services.customers-service.image
+    argocd-image-updater.argoproj.io/discovery-server.helm.image-path: services.discovery-server.image
+    argocd-image-updater.argoproj.io/genai-service.helm.image-path: services.genai-service.image
+    argocd-image-updater.argoproj.io/vets-service.helm.image-path: services.vets-service.image
+    argocd-image-updater.argoproj.io/visits-service.helm.image-path: services.visits-service.image
 spec:
   project: da02  # Keep your existing project
   source:
