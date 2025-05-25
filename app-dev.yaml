@@ -4,26 +4,26 @@ metadata:
   name: da02-dev
   namespace: argocd
   annotations:
-    # Watch list with cleaner formatting
+    # Watch list with explicit 'latest' tags
     argocd-image-updater.argoproj.io/image-list: |
-      admin-server=docker.io/vuhoabinhthachhoa/spring-petclinic-admin-server:*,
-      api-gateway=docker.io/vuhoabinhthachhoa/spring-petclinic-api-gateway:*,
-      config-server=docker.io/vuhoabinhthachhoa/spring-petclinic-config-server:*,
-      customers-service=docker.io/vuhoabinhthachhoa/spring-petclinic-customers-service:*,
-      discovery-server=docker.io/vuhoabinhthachhoa/spring-petclinic-discovery-server:*,
-      genai-service=docker.io/vuhoabinhthachhoa/spring-petclinic-genai-service:*,
-      vets-service=docker.io/vuhoabinhthachhoa/spring-petclinic-vets-service:*,
-      visits-service=docker.io/vuhoabinhthachhoa/spring-petclinic-visits-service:*
+      admin-server=docker.io/vuhoabinhthachhoa/spring-petclinic-admin-server:latest,
+      api-gateway=docker.io/vuhoabinhthachhoa/spring-petclinic-api-gateway:latest,
+      config-server=docker.io/vuhoabinhthachhoa/spring-petclinic-config-server:latest,
+      customers-service=docker.io/vuhoabinhthachhoa/spring-petclinic-customers-service:latest,
+      discovery-server=docker.io/vuhoabinhthachhoa/spring-petclinic-discovery-server:latest,
+      genai-service=docker.io/vuhoabinhthachhoa/spring-petclinic-genai-service:latest,
+      vets-service=docker.io/vuhoabinhthachhoa/spring-petclinic-vets-service:latest,
+      visits-service=docker.io/vuhoabinhthachhoa/spring-petclinic-visits-service:latest
 
-    # Set update strategy
-    argocd-image-updater.argoproj.io/admin-server.update-strategy: digest
-    argocd-image-updater.argoproj.io/api-gateway.update-strategy: digest
-    argocd-image-updater.argoproj.io/config-server.update-strategy: digest
-    argocd-image-updater.argoproj.io/customers-service.update-strategy: digest
-    argocd-image-updater.argoproj.io/discovery-server.update-strategy: digest
-    argocd-image-updater.argoproj.io/genai-service.update-strategy: digest
-    argocd-image-updater.argoproj.io/vets-service.update-strategy: digest
-    argocd-image-updater.argoproj.io/visits-service.update-strategy: digest
+    # Set update strategy to latest (optional, as default behavior works with 'latest' tag)
+    argocd-image-updater.argoproj.io/admin-server.update-strategy: latest
+    argocd-image-updater.argoproj.io/api-gateway.update-strategy: latest
+    argocd-image-updater.argoproj.io/config-server.update-strategy: latest
+    argocd-image-updater.argoproj.io/customers-service.update-strategy: latest
+    argocd-image-updater.argoproj.io/discovery-server.update-strategy: latest
+    argocd-image-updater.argoproj.io/genai-service.update-strategy: latest
+    argocd-image-updater.argoproj.io/vets-service.update-strategy: latest
+    argocd-image-updater.argoproj.io/visits-service.update-strategy: latest
 
     # How to apply changes
     argocd-image-updater.argoproj.io/write-back-method: argocd
