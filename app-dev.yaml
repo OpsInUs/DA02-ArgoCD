@@ -4,6 +4,7 @@ metadata:
   name: da02-dev
   namespace: argocd
   annotations:
+    argocd-image-updater.argoproj.io/image-update-frequency: "15m"
     # Watch list with explicit 'latest' tags
     argocd-image-updater.argoproj.io/image-list: |
       admin-server=docker.io/vuhoabinhthachhoa/spring-petclinic-admin-server:latest,
