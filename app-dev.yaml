@@ -11,17 +11,15 @@ metadata:
       config-server=docker.io/vuhoabinhthachhoa/spring-petclinic-config-server:latest,
       customers-service=docker.io/vuhoabinhthachhoa/spring-petclinic-customers-service:latest,
       discovery-server=docker.io/vuhoabinhthachhoa/spring-petclinic-discovery-server:latest,
-      genai-service=docker.io/vuhoabinhthachhoa/spring-petclinic-genai-service:latest,
       vets-service=docker.io/vuhoabinhthachhoa/spring-petclinic-vets-service:latest,
       visits-service=docker.io/vuhoabinhthachhoa/spring-petclinic-visits-service:latest
 
-    # Set update strategy to latest (optional, as default behavior works with 'latest' tag)
     argocd-image-updater.argoproj.io/admin-server.update-strategy: digest
     argocd-image-updater.argoproj.io/api-gateway.update-strategy: digest
     argocd-image-updater.argoproj.io/config-server.update-strategy: digest
     argocd-image-updater.argoproj.io/customers-service.update-strategy: digest
     argocd-image-updater.argoproj.io/discovery-server.update-strategy: digest
-    argocd-image-updater.argoproj.io/genai-service.update-strategy: digest
+    #argocd-image-updater.argoproj.io/genai-service.update-strategy: digest
     argocd-image-updater.argoproj.io/vets-service.update-strategy: digest
     argocd-image-updater.argoproj.io/visits-service.update-strategy: digest
 
@@ -33,7 +31,7 @@ metadata:
     argocd-image-updater.argoproj.io/config-server.helm.image-path: services.config-server.image
     argocd-image-updater.argoproj.io/customers-service.helm.image-path: services.customers-service.image
     argocd-image-updater.argoproj.io/discovery-server.helm.image-path: services.discovery-server.image
-    argocd-image-updater.argoproj.io/genai-service.helm.image-path: services.genai-service.image
+    #argocd-image-updater.argoproj.io/genai-service.helm.image-path: services.genai-service.image
     argocd-image-updater.argoproj.io/vets-service.helm.image-path: services.vets-service.image
     argocd-image-updater.argoproj.io/visits-service.helm.image-path: services.visits-service.image
 spec:
@@ -44,6 +42,7 @@ spec:
     path: .
     helm:
       valueFiles:
+        - values.yaml
         - env/dev/values.yaml
   destination:
     server: https://kubernetes.default.svc
