@@ -16,14 +16,14 @@ metadata:
       visits-service=docker.io/vuhoabinhthachhoa/spring-petclinic-visits-service:latest
 
     # Set update strategy to latest (optional, as default behavior works with 'latest' tag)
-    argocd-image-updater.argoproj.io/admin-server.update-strategy: latest
-    argocd-image-updater.argoproj.io/api-gateway.update-strategy: latest
-    argocd-image-updater.argoproj.io/config-server.update-strategy: latest
-    argocd-image-updater.argoproj.io/customers-service.update-strategy: latest
-    argocd-image-updater.argoproj.io/discovery-server.update-strategy: latest
-    argocd-image-updater.argoproj.io/genai-service.update-strategy: latest
-    argocd-image-updater.argoproj.io/vets-service.update-strategy: latest
-    argocd-image-updater.argoproj.io/visits-service.update-strategy: latest
+    argocd-image-updater.argoproj.io/admin-server.update-strategy: digest
+    argocd-image-updater.argoproj.io/api-gateway.update-strategy: digest
+    argocd-image-updater.argoproj.io/config-server.update-strategy: digest
+    argocd-image-updater.argoproj.io/customers-service.update-strategy: digest
+    argocd-image-updater.argoproj.io/discovery-server.update-strategy: digest
+    argocd-image-updater.argoproj.io/genai-service.update-strategy: digest
+    argocd-image-updater.argoproj.io/vets-service.update-strategy: digest
+    argocd-image-updater.argoproj.io/visits-service.update-strategy: digest
 
     # How to apply changes
     argocd-image-updater.argoproj.io/write-back-method: argocd
