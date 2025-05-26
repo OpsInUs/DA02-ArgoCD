@@ -4,7 +4,7 @@ metadata:
   name: da02-dev
   namespace: argocd
   annotations:
-    argocd-image-updater.argoproj.io/image-update-frequency: "15m"
+    argocd-image-updater.argoproj.io/webhook: "true"
     # Watch list with explicit 'latest' tags
     argocd-image-updater.argoproj.io/image-list: |
       admin-server=docker.io/vuhoabinhthachhoa/spring-petclinic-admin-server:latest,
@@ -24,17 +24,29 @@ metadata:
     argocd-image-updater.argoproj.io/vets-service.update-strategy: digest
     argocd-image-updater.argoproj.io/visits-service.update-strategy: digest
 
+    
     # How to apply changes
     argocd-image-updater.argoproj.io/write-back-method: argocd
 
-    argocd-image-updater.argoproj.io/admin-server.helm.image-path: services.admin-server.image
-    argocd-image-updater.argoproj.io/api-gateway.helm.image-path: services.api-gateway.image
-    argocd-image-updater.argoproj.io/config-server.helm.image-path: services.config-server.image
-    argocd-image-updater.argoproj.io/customers-service.helm.image-path: services.customers-service.image
-    argocd-image-updater.argoproj.io/discovery-server.helm.image-path: services.discovery-server.image
-    #argocd-image-updater.argoproj.io/genai-service.helm.image-path: services.genai-service.image
-    argocd-image-updater.argoproj.io/vets-service.helm.image-path: services.vets-service.image
-    argocd-image-updater.argoproj.io/visits-service.helm.image-path: services.visits-service.image
+    # Helm repository and image paths
+    argocd-image-updater.argoproj.io/admin-server.helm.image-name: services.admin-server.image.repository
+    argocd-image-updater.argoproj.io/api-gateway.helm.image-name: services.api-gateway.image.repository
+    argocd-image-updater.argoproj.io/config-server.helm.image-name: services.config-server.image.repository
+    argocd-image-updater.argoproj.io/customers-service.helm.image-name: services.customers-service.image.repository
+    argocd-image-updater.argoproj.io/discovery-server.helm.image-name: services.discovery-server.image.repository
+    #argocd-image-updater.argoproj.io/genai-service.helm.image-name: services.genai-service.image.repository
+    argocd-image-updater.argoproj.io/vets-service.helm.image-name: services.vets-service.image.repository
+    argocd-image-updater.argoproj.io/visits-service.helm.image-name: services.visits-service.image.repository
+
+    # Image tag paths
+    argocd-image-updater.argoproj.io/admin-server.helm.image-tag: services.admin-server.image.tag
+    argocd-image-updater.argoproj.io/api-gateway.helm.image-tag: services.api-gateway.image.tag
+    argocd-image-updater.argoproj.io/config-server.helm.image-tag: services.config-server.image.tag
+    argocd-image-updater.argoproj.io/customers-service.helm.image-tag: services.customers-service.image.tag
+    argocd-image-updater.argoproj.io/discovery-server.helm.image-tag: services.discovery-server.image.tag
+    #argocd-image-updater.argoproj.io/genai-service.helm.image-tag: services.genai-service.image.tag
+    argocd-image-updater.argoproj.io/vets-service.helm.image-tag: services.vets-service.image.tag
+    argocd-image-updater.argoproj.io/visits-service.helm.image-tag: services.visits-service.image.tag
 spec:
   project: da02
   source:
